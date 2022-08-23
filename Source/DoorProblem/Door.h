@@ -20,6 +20,20 @@ enum class EDoorOpenStyle
 	Disappearing,
 	Roadkill
 };
+
+//UENUM()
+//enum class EKeysDoor
+//{
+//	One,
+//	Two,
+//	Three,
+//	Four,
+//	Five,
+//	Six,
+//	Seven,
+//	Eight
+//};
+
 UCLASS()
 class DOORPROBLEM_API ADoor : public AActor
 {
@@ -37,8 +51,12 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	EDoorOpenStyle DoorType = EDoorOpenStyle::TwoWayHinge;
+	//UPROPERTY(EditAnywhere)
+	//EKeysDoor KeyType = EKeysDoor::One;
 	UPROPERTY(EditAnywhere)
 	float doorSpeed = 4;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	bool isAutomatic = false;
 	UPROPERTY(BlueprintReadOnly)
 	bool isDoorOpen = false;
 	bool isBack = false;

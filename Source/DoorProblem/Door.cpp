@@ -43,6 +43,8 @@ void ADoor::BeginPlay()
 void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	
 	if (isMoving) {
 
 		switch (DoorType) {
@@ -250,3 +252,4 @@ void ADoor::CloseDoor() {
 	}
 	
 }
+

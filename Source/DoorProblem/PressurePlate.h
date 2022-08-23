@@ -4,19 +4,7 @@
 #include "GameFramework/Actor.h"
 #include "PressurePlate.generated.h"
 
-
-UENUM()
-enum class EKeysPP
-{
-	One,
-	Two,
-	Three,
-	Four,
-	Five,
-	Six,
-	Seven,
-	Eight
-};
+class ADoor;
 
 UCLASS()
 class DOORPROBLEM_API APressurePlate : public AActor
@@ -33,16 +21,23 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly)
 	bool isPressured = false;
+	UPROPERTY(EditAnywhere)
+	float plateSpeed = 2;
 
-	void pressurePlateMove(float Time);
+
+	bool isMoving = false;
 
 	UPROPERTY(EditAnywhere)
-	EKeysPP KeyType = EKeysPP::One;
+	UStaticMeshComponent* myPlate;
+
+	UPROPERTY(EditAnywhere,BlueprintReadOnly)
+	bool isAButton = true;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TArray<ADoor*> affectedDoors;
+
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 };
-
-

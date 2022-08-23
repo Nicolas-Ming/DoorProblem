@@ -94,7 +94,7 @@ void ADoor::Tick(float DeltaTime)
 }
 
 void ADoor::TwoWayHinge(float Time) {
-	if (isDoorOpen == true) {
+	if (isDoorOpen == true && !isLocked) {
 		timer += Time;
 		ratio = FMath::Clamp(timer * doorSpeed, 0, 1);
 
@@ -110,7 +110,7 @@ void ADoor::TwoWayHinge(float Time) {
 	}
 }
 void ADoor::SlidingRight(float Time) {
-	if (isDoorOpen == true) {
+	if (isDoorOpen == true && !isLocked) {
 		timer += Time;
 		ratio = FMath::Clamp(timer * doorSpeed, 0, 1);
 
@@ -126,7 +126,7 @@ void ADoor::SlidingRight(float Time) {
 	}
 }
 void ADoor::SlidingUp(float Time) {
-	if (isDoorOpen == true) {
+	if (isDoorOpen == true && !isLocked) {
 		timer += Time;
 		ratio = FMath::Clamp(timer * doorSpeed, 0, 1);
 
@@ -142,7 +142,7 @@ void ADoor::SlidingUp(float Time) {
 	}
 }
 void ADoor::SlidingLeft(float Time) {
-	if (isDoorOpen == true) {
+	if (isDoorOpen == true && !isLocked) {
 		timer += Time;
 		ratio = FMath::Clamp(timer * doorSpeed, 0, 1);
 
@@ -158,7 +158,7 @@ void ADoor::SlidingLeft(float Time) {
 	}
 }
 void ADoor::SlidingDown(float Time) {
-	if (isDoorOpen == true) {
+	if (isDoorOpen == true && !isLocked) {
 		timer += Time;
 		ratio = FMath::Clamp(timer * doorSpeed, 0, 1);
 
@@ -174,7 +174,7 @@ void ADoor::SlidingDown(float Time) {
 	}
 }
 void ADoor::Shrinking(float Time) {
-	if (isDoorOpen == true) {
+	if (isDoorOpen == true && !isLocked) {
 		timer += Time;
 		ratio = FMath::Clamp(timer * doorSpeed, 0, 1);
 		myDoor->SetRelativeScale3D(FMath::Lerp(FVector(1, 1, 1), FVector(0, 0, 0), ratio));
@@ -189,7 +189,7 @@ void ADoor::Shrinking(float Time) {
 	}
 }
 void ADoor::Disappearing(float Time) {
-	if (isDoorOpen == true) {
+	if (isDoorOpen == true && !isLocked) {
 		timer += Time;
 		ratio = FMath::Clamp(timer * doorSpeed, 0, 1);
 		myDoor->SetRelativeScale3D(FMath::Lerp(FVector(1, 1, 1), FVector(0, 0, 0), ratio));
@@ -204,7 +204,7 @@ void ADoor::Disappearing(float Time) {
 	}
 }
 void ADoor::Roadkill(float Time) {
-	if (isDoorOpen == true) {
+	if (isDoorOpen == true && !isLocked) {
 		timer += Time;
 		ratio = FMath::Clamp(timer * doorSpeed, 0, 1);
 
@@ -253,3 +253,10 @@ void ADoor::CloseDoor() {
 	
 }
 
+void ADoor::UnlockDoor() {
+	isLocked = false;
+}
+
+void ADoor::LockDoor() {
+	isLocked = true;
+}

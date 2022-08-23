@@ -21,18 +21,6 @@ enum class EDoorOpenStyle
 	Roadkill
 };
 
-//UENUM()
-//enum class EKeysDoor
-//{
-//	One,
-//	Two,
-//	Three,
-//	Four,
-//	Five,
-//	Six,
-//	Seven,
-//	Eight
-//};
 
 UCLASS()
 class DOORPROBLEM_API ADoor : public AActor
@@ -51,8 +39,6 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	EDoorOpenStyle DoorType = EDoorOpenStyle::TwoWayHinge;
-	//UPROPERTY(EditAnywhere)
-	//EKeysDoor KeyType = EKeysDoor::One;
 	UPROPERTY(EditAnywhere)
 	float doorSpeed = 4;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
@@ -64,6 +50,8 @@ protected:
 	bool isMoving = false;
 	UPROPERTY(EditAnywhere)
 	bool canClose = true;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	bool isLocked = false;
 	float timer;
 	float ratio;
 	float doorXDistance;
@@ -93,6 +81,11 @@ public:
 	void OpenDoor();
 	UFUNCTION(BlueprintCallable)
 	void CloseDoor();
+
+	UFUNCTION(BlueprintCallable)
+	void UnlockDoor();
+	UFUNCTION(BlueprintCallable)
+	void LockDoor();
 	
 
 	// Called every frame

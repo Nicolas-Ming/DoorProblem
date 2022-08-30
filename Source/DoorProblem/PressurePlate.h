@@ -18,18 +18,6 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-	UPROPERTY(BlueprintReadOnly)
-	bool isPressured = false;
-	UPROPERTY(EditAnywhere)
-	float plateSpeed = 2;
-
-
-	bool isMoving = false;
-
-	UPROPERTY(EditAnywhere)
-	UStaticMeshComponent* myPlate;
-
 	UPROPERTY(EditAnywhere,BlueprintReadOnly)
 	bool isAButton = true;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
@@ -38,6 +26,6 @@ protected:
 
 public:	
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+
 
 };

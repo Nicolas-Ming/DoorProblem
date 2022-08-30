@@ -50,7 +50,7 @@ protected:
 	bool isMoving = false;
 	UPROPERTY(EditAnywhere)
 	bool canClose = true;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(BlueprintReadWrite)
 	bool isLocked = false;
 	float timer;
 	float ratio;

@@ -236,7 +236,7 @@ void ADoor::OpenDoor() {
 		//Do not change timer, it is in motion
 	}
 	else {
-		timer = 0;
+		ratio = 0;
 		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("We should be movin")));
 		isMoving = true;
 	}

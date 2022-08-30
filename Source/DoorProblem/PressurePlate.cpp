@@ -19,14 +19,8 @@ APressurePlate::APressurePlate()
 void APressurePlate::BeginPlay()
 {
 	Super::BeginPlay();
+
 	
-}
-
-// Called every frame
-void APressurePlate::Tick(float DeltaTime)
-{
-
-
 }
 
 
